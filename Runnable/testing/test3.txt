@@ -1,0 +1,14 @@
+add r0, r0, r0 
+orhi r1, r0, 8
+ori r2, r1, 0x10
+ori r3, r1, 0x40
+ori r4, r1, 0x50
+addi r5, r0, 1
+loop: ldw r6, (r3)
+stw r6, (r1)
+stw r5, (r2)
+ldw r6, (r4)
+beq r6, r7, loop
+add r7, r6, r0
+addi r5, r5, 1
+br loop

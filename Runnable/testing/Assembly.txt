@@ -1,0 +1,45 @@
+﻿Program 1
+add r0, r0, r0
+addi r1, r0, 1 
+ori r2, r0, 2
+xor r3, r1, r2
+add r4, r1, r3
+or r5, r1, r4
+nor r6, r2, r4
+sub r7, r6, r2
+orhi r7, r3, 3
+
+
+Program 2
+add r0, r0, r0 
+addi r6, r0, 0x20
+addi r2, r0, 2
+call sum
+end: br end 
+sum: addi r6, r6, -4 
+stw r4, (r6)
+addi r3, r0, 0 
+addi r4, r0, 1
+loop: add r3, r3, r4
+addi r4, r4, 1
+bge r2, r4, loop
+ldw r4, (r6)
+addi r6, r6, 4
+ret
+
+
+Program 3
+add r0, r0, r0 
+orhi r1, r0, 8
+ori r2, r1, 0x10
+ori r3, r1, 0x40
+ori r4, r1, 0x50
+addi r5, r0, 1
+loop: ldw r6, (r3)
+stw r6, (r1)
+stw r5, (r2)
+ldw r6, (r4)
+beq r6, r7, loop
+add r7, r6, r0
+addi r5, r5, 1
+br loop
